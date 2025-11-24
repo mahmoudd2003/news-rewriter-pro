@@ -7,20 +7,21 @@ client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 def ai_score(text):
     prompt = """
-    قيم النص التالي من حيث احتمالية أنه مكتوب بالذكاء الاصطناعي.
-    أعد فقط رقمًا بين 0 و 100:
-    - 0 يعني كتابة بشرية بالكامل
-    - 100 يعني ذكاء اصطناعي بالكامل
+    قيّم احتمال أن يكون النص التالي مكتوبًا بالذكاء الاصطناعي.
+    أعد فقط رقمًا دقيقًا بين 0 و100:
+    - 0 = بشري بالكامل
+    - 100 = ذكاء اصطناعي بالكامل
+
+    لا تشرح. فقط أعد الرقم.
 
     النص:
     {text}
     """.format(text=text)
 
     response = client.chat.completions.create(
-        model="gpt-4.1",
+        model="gpt-4.1-mini",
         messages=[{"role": "user", "content": prompt}],
-        temperature=0.2,
-        top_p=0.9
+        temperature=0.0
     )
 
     return response.choices[0].message.content
