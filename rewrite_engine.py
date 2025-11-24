@@ -6,7 +6,7 @@ load_dotenv()
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 def rewrite_news_humanized(text):
-    prompt = f"""
+prompt = """
     أعد صياغة الخبر التالي بأسلوب صحفي عربي بشري 100%.
     الشروط:
     - جمل قصيرة وأخرى متوسطة
