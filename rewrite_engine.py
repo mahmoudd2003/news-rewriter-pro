@@ -26,4 +26,4 @@ def rewrite_news_humanized(text):
         top_p=0.9
     )
 
-    return response.choices[0].message["content"]
+return response.choices[0].message.content
