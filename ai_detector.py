@@ -22,4 +22,4 @@ def ai_score(text):
         temperature=0
     )
 
-    return res.choices[0].message["content"]
+return res.choices[0].message.content
