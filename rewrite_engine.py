@@ -6,7 +6,7 @@ load_dotenv()
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 def rewrite_news_humanized(text):
-prompt = """
+    prompt = """
     أعد صياغة الخبر التالي بأسلوب صحفي عربي بشري 100%.
     الشروط:
     - جمل قصيرة وأخرى متوسطة
@@ -17,7 +17,7 @@ prompt = """
 
     النص:
     {text}
-    """
+    """.format(text=text)
 
     response = client.chat.completions.create(
         model="gpt-4.1",
@@ -26,4 +26,4 @@ prompt = """
         top_p=0.9
     )
 
-return response.choices[0].message.content
+    return response.choices[0].message.content
