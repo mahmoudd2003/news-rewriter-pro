@@ -2,7 +2,5 @@ openai>=1.51.0
 streamlit==1.38.0
 python-dotenv==1.0.1
 requests==2.31.0
-beautifulsoup4==4.12.2
-html5lib==1.1
 python-slugify==8.0.1
 pillow==10.1.0
